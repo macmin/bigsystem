@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
 
 
 Route::group(['prefix' => 'adminor'], function(){
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/admincv', 'CurriculumController@index')->name('indexcv');
+	Route::get('/admincv/{id}', 'CurriculumController@show');
 });
 
 Auth::routes();
